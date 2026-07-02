@@ -1,6 +1,6 @@
 /**
  * Custom Royal Book Recipe Hub Client Application
- * Fixes Search Bar, adds Bengali-English Digit Normalization, Master Chefs Reference, and A-to-Z Guides.
+ * Fixes Search Bar with global recipe lookup, Bengali-English normalization, and 3D UI.
  */
 
 // Comprehensive Vector Icon Keyword Matcher
@@ -42,8 +42,8 @@ function getDishVectorIcon(name, catId) {
   return CAT_VECTOR_DEFAULT[catId] || "🍽️";
 }
 
-// Bengali to English digit converter for robust searching
-function normalizeDigits(str) {
+// Bengali to English digit & text converter for robust searching
+function normalizeSearchText(str) {
   if (!str) return '';
   const bn = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
   const en = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
@@ -51,7 +51,7 @@ function normalizeDigits(str) {
   for (let i = 0; i < 10; i++) {
     res = res.replaceAll(bn[i], en[i]);
   }
-  return res.toLowerCase();
+  return res.toLowerCase().replace(/[\s\.\,\-\_\'\"]+/g, '');
 }
 
 // User's Exact Recipe Specific Details Database
@@ -468,7 +468,7 @@ function renderTrending(items) {
   `).join('');
 }
 
-// Robust Filter and Render Recipes
+// Robust Global Filter and Render Recipes (Always searches across ALL 167 recipes if query entered)
 function filterAndRender() {
   const searchInput = document.getElementById('search-input');
   if (searchInput) {
@@ -476,26 +476,37 @@ function filterAndRender() {
   }
 
   let filtered = state.recipes;
+  const rawQ = state.searchQuery ? state.searchQuery.trim() : '';
 
-  if (state.currentCategory && state.currentCategory !== 'all') {
-    filtered = filtered.filter(r => r.category_id === state.currentCategory);
-  }
-
-  if (state.searchQuery) {
-    const q = normalizeDigits(state.searchQuery).trim();
+  if (rawQ !== '') {
+    const q = normalizeSearchText(rawQ);
     filtered = filtered.filter(r => {
-      const titleBnNorm = normalizeDigits(r.title_bn);
-      const titleEnNorm = normalizeDigits(r.title_en);
-      const descNorm = normalizeDigits(r.short_description);
-      const categoryNorm = normalizeDigits(r.category_name_bn);
-      const ingNorm = (r.ingredients || []).map(i => normalizeDigits(i.name)).join(' ');
+      const titleBnNorm = normalizeSearchText(r.title_bn);
+      const titleEnNorm = normalizeSearchText(r.title_en);
+      const descNorm = normalizeSearchText(r.short_description);
+      const categoryNorm = normalizeSearchText(r.category_name_bn);
+      const ingNorm = (r.ingredients || []).map(i => normalizeSearchText(i.name)).join('');
+      const tagNorm = (r.tags || []).map(t => normalizeSearchText(t)).join('');
 
       return titleBnNorm.includes(q) ||
              titleEnNorm.includes(q) ||
              descNorm.includes(q) ||
              categoryNorm.includes(q) ||
-             ingNorm.includes(q);
+             ingNorm.includes(q) ||
+             tagNorm.includes(q);
     });
+
+    // If category filter is set and yields results within query, apply it, else show global search matches
+    if (state.currentCategory && state.currentCategory !== 'all') {
+      const catFiltered = filtered.filter(r => r.category_id === state.currentCategory);
+      if (catFiltered.length > 0) {
+        filtered = catFiltered;
+      }
+    }
+  } else {
+    if (state.currentCategory && state.currentCategory !== 'all') {
+      filtered = filtered.filter(r => r.category_id === state.currentCategory);
+    }
   }
 
   if (state.difficulty) {
@@ -529,9 +540,9 @@ function renderRecipes(recipes) {
       <div class="col-span-full text-center py-16 bg-slate-900/40 rounded-3xl border border-slate-800">
         <span class="text-5xl mb-4 block">🔍</span>
         <h3 class="text-xl font-bold text-white mb-2">কোনো রেসিপি পাওয়া যায়নি</h3>
-        <p class="text-slate-400 text-sm max-w-md mx-auto">অন্য সার্চ বা ফিল্টার নির্বাচন করে চেষ্টা করুন।</p>
+        <p class="text-slate-400 text-sm max-w-md mx-auto">অন্য কোনো নাম বা নম্বর টাইপ করে খুঁজুন।</p>
         <button onclick="resetFilters()" class="mt-4 px-5 py-2.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-sm shadow-lg">
-          ফিল্টার রিমুভ করুন
+          সব ১৬৭ টি রেসিপি দেখুন
         </button>
       </div>
     `;
