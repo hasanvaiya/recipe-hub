@@ -1,0 +1,167 @@
+/* Custom 3D & Mobile Ultra-Optimized Stylesheet for Recipe Hub */
+
+/* Font Family with explicit Emoji Rendering Support across iOS & Android */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom Scrollbar for Modal & Page */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.5);
+  border-radius: 8px;
+}
+
+/* Mobile Performance Optimization for Grid Cards */
+.recipe-card-wrapper {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 320px;
+}
+
+/* 3D Perspective Card Base */
+.card-3d-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out, border-color 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+}
+
+.card-inner-3d {
+  transform: translateZ(10px);
+}
+
+/* Vector Food Icon Badge Backgrounds - Perfectly Centered & Crispy on Mobile */
+.vector-card-header {
+  position: relative;
+  background: radial-gradient(circle at 50% 40%, rgba(245, 158, 11, 0.22), rgba(15, 23, 42, 0.98));
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+}
+
+.vector-icon-anim {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
+  line-height: 1;
+  display: inline-block;
+  user-select: none;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.6));
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-3d-tilt:hover .vector-icon-anim {
+  transform: scale(1.18) rotate(3deg);
+}
+
+/* Welcome Animation Styles */
+@keyframes welcomeFloatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes textShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.welcome-text-anim {
+  animation: welcomeFloatUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.welcome-gradient-shimmer {
+  background-size: 200% auto;
+  animation: textShimmer 4s ease infinite;
+}
+
+.welcome-fade-in {
+  opacity: 0;
+  animation: welcomeFloatUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.welcome-search-anim {
+  opacity: 0;
+  animation: welcomeFloatUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+/* Custom Checkbox Styling */
+.custom-checkbox {
+  appearance: none;
+  background-color: rgba(30, 41, 59, 0.8);
+  border: 1.5px solid rgba(245, 158, 11, 0.4);
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  transition: all 0.15s ease;
+}
+
+.custom-checkbox::before {
+  content: "✓";
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: #0f172a;
+  transform: scale(0);
+  transition: transform 0.15s ease-in-out;
+}
+
+.custom-checkbox:checked {
+  background-color: #f59e0b;
+  border-color: #f59e0b;
+}
+
+.custom-checkbox:checked::before {
+  transform: scale(1);
+}
+
+/* Fixed Center Modal Layout Fix */
+#recipe-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+}
+
+#recipe-modal.hidden {
+  display: none !important;
+}
+
+#modal-card {
+  width: 100%;
+  max-width: 48rem;
+  max-height: 90vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
