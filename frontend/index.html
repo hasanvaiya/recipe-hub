@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>রন্ধনঘর - ৫০০+ বিশ্বমানের ৩ডি রেসিপি হাব | 500+ Global Recipe Hub</title>
-  <meta name="description" content="বাঙালি, ভারতীয়, চাইনিজ, ফাস্ট ফুড, ইতালীয়, মধ্যপ্রাচ্য, আমেরিকান, সামুদ্রিক খাবার, মিষ্টি ও স্যুপের ৫০০টি সম্পূর্ণ বাংলা রেসিপি গাইড।">
+  <title>রন্ধনঘর - ১৬৭টি বিশ্বমানের রয়্যাল ও রাজকীয় রেসিপি | Royal Recipe Hub</title>
+  <meta name="description" content="বৃটিশ রাজ পরিবার, ভিআইপি রয়্যাল ও বিশ্বমানের ১৬৭টি বিশেষ বাংলা রেসিপির ৩ডি রয়্যাল সংগ্রহ।">
   
   <!-- Tailwind CSS CDN v3 -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -26,7 +26,7 @@
   </script>
 
   <!-- Custom 3D Stylesheet with Cache Busting -->
-  <link rel="stylesheet" href="css/custom.css?v=2.0">
+  <link rel="stylesheet" href="css/custom.css?v=4.0">
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-amber-500 selection:text-slate-950 relative overflow-x-hidden">
 
@@ -41,28 +41,28 @@
       <!-- Logo -->
       <a href="#" class="flex items-center gap-3 group">
         <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center text-2xl shadow-lg shadow-amber-500/30 group-hover:scale-110 group-hover:rotate-3 transition-transform">
-          🍲
+          👑
         </div>
         <div>
           <span class="text-xl sm:text-2xl font-black text-white tracking-tight group-hover:text-amber-400 transition-colors">
             রন্ধন<span class="text-amber-500">ঘর</span>
           </span>
           <span class="text-[10px] uppercase font-extrabold tracking-widest text-amber-400/90 block -mt-1">
-            500 GLOBAL RECIPES • 10 CATEGORIES
+            167 ROYAL BOOK RECIPES • 11 CATEGORIES
           </span>
         </div>
       </a>
 
       <!-- Quick Category Navigation (Desktop) -->
-      <nav class="hidden lg:flex items-center gap-5 text-xs sm:text-sm font-bold text-slate-300">
-        <button onclick="selectCategory('all')" class="hover:text-amber-400 transition-colors">সব (৫০০)</button>
-        <button onclick="selectCategory('bengali')" class="hover:text-amber-400 transition-colors">বাঙালি</button>
-        <button onclick="selectCategory('indian')" class="hover:text-amber-400 transition-colors">ভারতীয়</button>
-        <button onclick="selectCategory('chinese_east_asian')" class="hover:text-amber-400 transition-colors">চাইনিজ</button>
-        <button onclick="selectCategory('fastfood_street')" class="hover:text-amber-400 transition-colors">ফাস্ট ফুড</button>
-        <button onclick="selectCategory('italian_european')" class="hover:text-amber-400 transition-colors">ইতালীয়</button>
-        <button onclick="selectCategory('middle_eastern')" class="hover:text-amber-400 transition-colors">মধ্যপ্রাচ্য</button>
-        <button onclick="selectCategory('seafood')" class="hover:text-amber-400 transition-colors">সি-ফুড</button>
+      <nav class="hidden lg:flex items-center gap-4 text-xs font-bold text-slate-300">
+        <button onclick="selectCategory('all')" class="hover:text-amber-400 transition-colors">সব (১৬৭)</button>
+        <button onclick="selectCategory('british_royal')" class="hover:text-amber-400 transition-colors">রাজ পরিবার</button>
+        <button onclick="selectCategory('chicken_special')" class="hover:text-amber-400 transition-colors">চিকেন</button>
+        <button onclick="selectCategory('meat_special')" class="hover:text-amber-400 transition-colors">মাংস</button>
+        <button onclick="selectCategory('kebab_special')" class="hover:text-amber-400 transition-colors">কাবাব</button>
+        <button onclick="selectCategory('fish_seafood')" class="hover:text-amber-400 transition-colors">মাছ</button>
+        <button onclick="selectCategory('soups_special')" class="hover:text-amber-400 transition-colors">স্যুপ</button>
+        <button onclick="selectCategory('royal_celebrity')" class="hover:text-amber-400 transition-colors">ভিআইপি স্পেশাল</button>
       </nav>
 
       <!-- Right Action Controls -->
@@ -94,17 +94,18 @@
 
     <!-- Mobile Navigation Drawer -->
     <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800 bg-slate-950/95 p-4 space-y-1.5 text-xs font-semibold text-slate-300">
-      <button onclick="selectCategory('all'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900 text-amber-400">🍽️ সব ৫০০ টি রেসিপি</button>
-      <button onclick="selectCategory('bengali'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">১. বাঙালি ও বাংলাদেশী (১-৫০)</button>
-      <button onclick="selectCategory('indian'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">২. ভারতীয় ও দক্ষিণ এশীয় (৫১-১০০)</button>
-      <button onclick="selectCategory('chinese_east_asian'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৩. চাইনিজ ও ইস্ট এশিয়ান (১০১-১৫০)</button>
-      <button onclick="selectCategory('fastfood_street'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৪. ফাস্ট ফুড ও স্ট্রিট ফুড (১৫১-২০০)</button>
-      <button onclick="selectCategory('italian_european'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৫. ইতালীয় ও ইউরোপীয় (২০১-২৫০)</button>
-      <button onclick="selectCategory('middle_eastern'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৬. মধ্যপ্রাচ্য ও তুর্কি (২৫১-৩০১)</button>
-      <button onclick="selectCategory('american_mexican'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৭. আমেরিকান ও মেক্সিকান (৩০১-৩৫০)</button>
-      <button onclick="selectCategory('seafood'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৮. সামুদ্রিক খাবার / সি-ফুড (৩৫১-৪০০)</button>
-      <button onclick="selectCategory('desserts_bakery'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৯. ডেজার্ট ও মিষ্টি (৪০১-৪৫০)</button>
-      <button onclick="selectCategory('soups_beverages'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">১০. স্যুপ, সালাদ ও পানীয় (৪৫১-৫০২০)</button>
+      <button onclick="selectCategory('all'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900 text-amber-400">👑 সব ১৬৭ টি রাজকীয় রেসিপি</button>
+      <button onclick="selectCategory('british_royal'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">১. বৃটিশ রাজ পরিবারের রেসিপি (২১টি)</button>
+      <button onclick="selectCategory('chicken_special'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">২. চিকেন রেসিপি (১৯টি)</button>
+      <button onclick="selectCategory('meat_special'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৩. মাংসের রেসিপি - গরু ও খাসি (১৯টি)</button>
+      <button onclick="selectCategory('kebab_special'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৪. কাবাব রেসিপি (১৮টি)</button>
+      <button onclick="selectCategory('fish_seafood'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৫. মাছের রেসিপি (১৫টি)</button>
+      <button onclick="selectCategory('rice_special'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৬. রাইস রেসিপি (৭টি)</button>
+      <button onclick="selectCategory('snacks_breads'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৭. স্ন্যাকস ও রুটি (৮টি)</button>
+      <button onclick="selectCategory('salads_exotic'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৮. সালাদ রেসিপি (১৭টি)</button>
+      <button onclick="selectCategory('vegetable_dishes'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৯. ভেজিটেবল ও ভর্তা রেসিপি (১২টি)</button>
+      <button onclick="selectCategory('soups_special'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">১০. স্পেশাল স্যুপের রেসিপি (২০টি)</button>
+      <button onclick="selectCategory('royal_celebrity'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">১১. স্পেশাল রয়্যাল ও ভিআইপি রেসিপি (১১টি)</button>
     </div>
   </header>
 
@@ -118,25 +119,25 @@
     <!-- Hero Content -->
     <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6">
       <span class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-amber-500/20 via-orange-500/30 to-amber-500/20 border border-amber-500/40 text-amber-300 text-xs sm:text-sm font-black tracking-wide shadow-xl animate-pulse">
-        ✨ রন্ধনঘরে আপনাকে স্বাগতম • Welcome to RandhanGhor ✨
+        👑 রাজকীয় বইয়ের অরিজিনাল ১৬৭টি রেসিপি সংকলন • Royal Book Edition 👑
       </span>
       
       <h1 class="text-3.5xl sm:text-5.5xl lg:text-6.5xl font-black text-white leading-tight tracking-tight welcome-text-anim">
-        রান্নার সুস্বাদু জগতে <br/>
+        রাজকীয় রন্ধন শিল্পে <br/>
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200 welcome-gradient-shimmer">
           আপনাকে আন্তরিক উষ্ণ সম্ভাষণ!
-        </span> 👨‍🍳✨
+        </span> 👑✨
       </h1>
 
       <p class="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium welcome-fade-in">
-        আমাদের এই ডিজিটাল পাকঘরে খুঁজে নিন দেশ-বিদেশের সুস্বাদু সব পদের সেরা রেসিপি। আপনার পছন্দের খাবারটি নির্বাচন করুন এবং সহজ ধাপে রান্নার আনন্দ উপভোগ করুন!
+        বইটির সূচিপত্র অনুযায়ী সাজানো বৃটিশ রাজ পরিবার, রয়্যাল শেফ ও বিশ্বমানের সেরা ১৬৭টি রেসিপি। আপনার পছন্দের পদের ওপর ক্লিক করে ধাপে ধাপে তৈরির নির্দেশিকা দেখুন!
       </p>
 
       <!-- Smart Live Search Bar -->
       <div class="max-w-2xl mx-auto pt-2 welcome-search-anim">
         <div class="relative flex items-center">
           <input type="text" id="search-input" 
-            placeholder="খাবারের নাম বা নম্বর দিয়ে খুঁজুন (যেমন: ১, কাচ্চি, বাটার চিকেন, পিৎজা, সুশি)..."
+            placeholder="খাবারের নাম বা নম্বর দিয়ে খুঁজুন (যেমন: ১, বিফ রোগান জোস, চিকেন টিক্কা, বোয়াল মাছ)..."
             class="w-full py-4 sm:py-5 pl-14 pr-28 rounded-2xl bg-slate-900/90 border border-slate-700 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/40 text-white placeholder-slate-400 text-sm sm:text-base outline-none shadow-2xl backdrop-blur-md transition-all">
           <span class="absolute left-5 text-xl text-amber-500">🔍</span>
           <button onclick="filterAndRender()" class="absolute right-3 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold text-xs sm:text-sm transition-all shadow-lg shadow-amber-500/20">
@@ -147,10 +148,10 @@
         <!-- Quick Tags -->
         <div class="flex flex-wrap items-center justify-center gap-2 mt-4 text-xs">
           <span class="text-slate-400 font-semibold">জনপ্রিয়:</span>
-          <button onclick="document.getElementById('search-input').value='কাচ্চি'; filterAndRender();" class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 hover:border-amber-500 text-slate-300 hover:text-amber-400 transition-colors">১. কাচ্চি</button>
-          <button onclick="document.getElementById('search-input').value='বাটার চিকেন'; filterAndRender();" class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 hover:border-amber-500 text-slate-300 hover:text-amber-400 transition-colors">৫১. বাটার চিকেন</button>
-          <button onclick="document.getElementById('search-input').value='সুশি'; filterAndRender();" class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 hover:border-amber-500 text-slate-300 hover:text-amber-400 transition-colors">১০২. সুশি</button>
-          <button onclick="document.getElementById('search-input').value='মার্গারিটা'; filterAndRender();" class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 hover:border-amber-500 text-slate-300 hover:text-amber-400 transition-colors">২০১. মার্গারিটা পিৎজা</button>
+          <button onclick="document.getElementById('search-input').value='বিফ রোগান জোস'; filterAndRender();" class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 hover:border-amber-500 text-slate-300 hover:text-amber-400 transition-colors">১. বিফ রোগান জোস</button>
+          <button onclick="document.getElementById('search-input').value='আনোখা চিকেন'; filterAndRender();" class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 hover:border-amber-500 text-slate-300 hover:text-amber-400 transition-colors">২২. আনোখা চিকেন</button>
+          <button onclick="document.getElementById('search-input').value='শিক কাবাব'; filterAndRender();" class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 hover:border-amber-500 text-slate-300 hover:text-amber-400 transition-colors">৬০. শিক কাবাব</button>
+          <button onclick="document.getElementById('search-input').value='জন মেজর'; filterAndRender();" class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 hover:border-amber-500 text-slate-300 hover:text-amber-400 transition-colors">১৬২. জন মেজর'স বোয়াল</button>
         </div>
       </div>
     </div>
@@ -160,7 +161,7 @@
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 relative z-20 mb-12">
     <div class="flex items-center justify-between mb-4">
       <h3 class="text-xl font-bold text-white flex items-center gap-2">
-        <span>📂 ১০টি বিশ্বমানের খাবার বিভাগ</span>
+        <span>📂 ১১টি রাজকীয় বিভাগ</span>
       </h3>
       <span class="text-xs text-slate-400">ডানে-বামে স্ক্রোল করুন ➔</span>
     </div>
@@ -175,9 +176,9 @@
     <div class="flex items-center justify-between mb-6">
       <div>
         <h2 class="text-2xl sm:text-3xl font-black text-white flex items-center gap-2">
-          <span>🔥 শীর্ষ ট্রেন্ডিং ডিশসমূহ</span>
+          <span>🔥 শীর্ষ রাজকীয় ট্রেন্ডিং ডিশসমূহ</span>
         </h2>
-        <p class="text-xs sm:text-sm text-slate-400 mt-1">সবচেয়ে জনপ্রিয় এবং সর্বোচ্চ রেটিং প্রাপ্ত রাজকীয় রেসিপি</p>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1">সবচেয়ে জনপ্রিয় এবং সর্বোচ্চ রেটিং প্রাপ্ত রয়্যাল বইয়ের সেরা রেসিপি</p>
       </div>
     </div>
 
@@ -194,7 +195,7 @@
       
       <div class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
         <span id="total-recipes-count" class="px-3.5 py-1.5 rounded-xl bg-amber-500/20 border border-amber-500/30 text-amber-400 font-extrabold text-xs sm:text-sm shadow-sm">
-          ৫০০ টি রেসিপি
+          ১৬৭ টি রয়্যাল রেসিপি
         </span>
 
         <!-- Difficulty Filter -->
@@ -234,22 +235,22 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
         <div class="space-y-4 md:col-span-2">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center text-xl text-slate-950 font-bold shadow-lg shadow-amber-500/20">🍲</div>
-            <span class="text-xl font-bold text-white">রন্ধনঘর Recipe Hub</span>
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center text-xl text-slate-950 font-bold shadow-lg shadow-amber-500/20">👑</div>
+            <span class="text-xl font-bold text-white">রন্ধনঘর Royal Edition</span>
           </div>
           <p class="text-slate-400 text-sm max-w-md leading-relaxed">
-            বাংলাদেশের সবচেয়ে বড় ৫০০টি বিশ্বমানের রেসিপির ৩ডি ডিজিটাল সংগ্রহ। বাঙালি, চাইনিজ,ভারতীয়, ইতালীয়, মেক্সিকান ও আমেরিকান রেসিপি গাইড।
+            বইয়ের ১৬৭টি রাজকীয় ও বিশ্বমানের রয়্যাল রেসিপির ৩ডি ডিজিটাল সংগ্রহ। বৃটিশ রাজ পরিবার, বিশেষ কাবাব, সালাদ ও রয়্যাল কারি গাইড।
           </p>
         </div>
         
         <div>
           <h4 class="text-white font-bold text-sm mb-4">ক্যাটাগরি</h4>
           <ul class="space-y-2 text-xs text-slate-400">
-            <li><button onclick="selectCategory('bengali')" class="hover:text-amber-400">বাঙালি খাবার (১-৫০)</button></li>
-            <li><button onclick="selectCategory('indian')" class="hover:text-amber-400">ভারতীয় খাবার (৫১-১০০)</button></li>
-            <li><button onclick="selectCategory('chinese_east_asian')" class="hover:text-amber-400">চাইনিজ ও এশিয়ান (১০১-১৫০)</button></li>
-            <li><button onclick="selectCategory('fastfood_street')" class="hover:text-amber-400">ফাস্ট ফুড (১৫১-২০০)</button></li>
-            <li><button onclick="selectCategory('italian_european')" class="hover:text-amber-400">ইতালীয় (২০১-২৫০)</button></li>
+            <li><button onclick="selectCategory('british_royal')" class="hover:text-amber-400">১. বৃটিশ রাজ পরিবার (২১টি)</button></li>
+            <li><button onclick="selectCategory('chicken_special')" class="hover:text-amber-400">২. চিকেন রেসিপি (১৯টি)</button></li>
+            <li><button onclick="selectCategory('meat_special')" class="hover:text-amber-400">৩. মাংসের রেসিপি (১৯টি)</button></li>
+            <li><button onclick="selectCategory('kebab_special')" class="hover:text-amber-400">৪. কাবাব রেসিপি (১৮টি)</button></li>
+            <li><button onclick="selectCategory('royal_celebrity')" class="hover:text-amber-400">১১. রয়্যাল ও ভিআইপি (১১টি)</button></li>
           </ul>
         </div>
 
@@ -277,7 +278,7 @@
       </div>
 
       <div class="border-t border-slate-900 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-        <p>© 2026 রন্ধনঘর (500 Global Recipe Hub). Developed by Hasan Ahmed Sojib.</p>
+        <p>© 2026 রন্ধনঘর (167 Royal Book Recipes). Developed by Hasan Ahmed Sojib.</p>
         <p>3D Ultra-Responsive Design for Mobile, iPad & PC.</p>
       </div>
     </div>
@@ -292,7 +293,7 @@
     </div>
   </div>
 
-  <!-- Application JS with Cache Busting v=3.0 -->
-  <script src="js/app.js?v=3.0"></script>
+  <!-- Application JS with Cache Busting v=4.0 -->
+  <script src="js/app.js?v=4.0"></script>
 </body>
 </html>
