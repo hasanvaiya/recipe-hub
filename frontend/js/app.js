@@ -1,6 +1,6 @@
 /**
  * Custom Royal Book Recipe Hub Client Application
- * Loaded with the User's exact 167 Cookbook Recipes with Authentic Ingredients & Steps.
+ * Fixes Search Bar, adds Bengali-English Digit Normalization, Master Chefs Reference, and A-to-Z Guides.
  */
 
 // Comprehensive Vector Icon Keyword Matcher
@@ -40,6 +40,18 @@ function getDishVectorIcon(name, catId) {
     }
   }
   return CAT_VECTOR_DEFAULT[catId] || "🍽️";
+}
+
+// Bengali to English digit converter for robust searching
+function normalizeDigits(str) {
+  if (!str) return '';
+  const bn = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+  const en = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  let res = str.toString();
+  for (let i = 0; i < 10; i++) {
+    res = res.replaceAll(bn[i], en[i]);
+  }
+  return res.toLowerCase();
 }
 
 // User's Exact Recipe Specific Details Database
@@ -124,7 +136,7 @@ const SPECIFIC_RECIPE_DETAILS = {
   }
 };
 
-// Fallback generator for remaining recipes from the user's book list
+// Fallback generator for remaining recipes
 function getRecipeGuide(name, num, catId) {
   if (SPECIFIC_RECIPE_DETAILS[name]) {
     return SPECIFIC_RECIPE_DETAILS[name];
@@ -456,8 +468,13 @@ function renderTrending(items) {
   `).join('');
 }
 
-// Filter and Render Recipes
+// Robust Filter and Render Recipes
 function filterAndRender() {
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) {
+    state.searchQuery = searchInput.value;
+  }
+
   let filtered = state.recipes;
 
   if (state.currentCategory && state.currentCategory !== 'all') {
@@ -465,12 +482,20 @@ function filterAndRender() {
   }
 
   if (state.searchQuery) {
-    const q = state.searchQuery.toLowerCase().trim();
-    filtered = filtered.filter(r => 
-      r.title_bn.toLowerCase().includes(q) ||
-      (r.title_en && r.title_en.toLowerCase().includes(q)) ||
-      r.short_description.toLowerCase().includes(q)
-    );
+    const q = normalizeDigits(state.searchQuery).trim();
+    filtered = filtered.filter(r => {
+      const titleBnNorm = normalizeDigits(r.title_bn);
+      const titleEnNorm = normalizeDigits(r.title_en);
+      const descNorm = normalizeDigits(r.short_description);
+      const categoryNorm = normalizeDigits(r.category_name_bn);
+      const ingNorm = (r.ingredients || []).map(i => normalizeDigits(i.name)).join(' ');
+
+      return titleBnNorm.includes(q) ||
+             titleEnNorm.includes(q) ||
+             descNorm.includes(q) ||
+             categoryNorm.includes(q) ||
+             ingNorm.includes(q);
+    });
   }
 
   if (state.difficulty) {
@@ -623,7 +648,7 @@ function setModalTab(tabName) {
   renderRecipeDetailModal(state.selectedRecipe);
 }
 
-// Render Ultra-Detailed Modal Content
+// Render Modal Details
 function renderRecipeDetailModal(recipe) {
   const modalContent = document.getElementById('modal-content-body');
   if (!modalContent || !recipe) return;
@@ -773,17 +798,20 @@ function renderRecipeDetailModal(recipe) {
   `;
 }
 
-// Event Listeners
+// Event Listeners for Instant Live Search & Controls
 function setupEventListeners() {
   const searchInput = document.getElementById('search-input');
-  let timeout;
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        state.searchQuery = e.target.value;
+      state.searchQuery = e.target.value;
+      filterAndRender();
+    });
+
+    searchInput.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
+        state.searchQuery = searchInput.value;
         filterAndRender();
-      }, 120);
+      }
     });
   }
 
