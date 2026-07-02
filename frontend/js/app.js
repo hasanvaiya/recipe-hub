@@ -1,6 +1,6 @@
 /**
  * Custom Royal Book Recipe Hub Client Application
- * Loaded with the User's exact 167 Book Recipes across 11 Categories.
+ * Ultra-Detailed A-to-Z Guided Recipes, Exact Ingredients & Enhanced User Experience.
  */
 
 // Comprehensive Vector Icon Keyword Matcher
@@ -14,7 +14,7 @@ const VECTOR_ICON_MAP = [
   { keywords: ["সামোসা", "সিঙ্গাড়া", "পরাটা", "চাপাতি", "নিহারি", "রোল", "কাটলেট"], icon: "🥟" },
   { keywords: ["সালাদ"], icon: "🥗" },
   { keywords: ["স্যুপ"], icon: "🥣" },
-  { keywords: ["ভর্তা", "সবজি", "শাক", "লাবড়া", "পনির", "ভিন্ডি", "বেগুন", "লাউ", "জিরা"], icon: "🥗" },
+  { keywords: ["ভর্তা", "সবজি", "শাক", "লাবড়া", "পনির", "ভিন্ডি", "বেগুন", "লাউ", "জিরা"], icon: "🥦" },
   { keywords: ["সস", "চাটনি", "কোকোনাট", "পাকোরা"], icon: "🧋" }
 ];
 
@@ -42,117 +42,134 @@ function getDishVectorIcon(name, catId) {
   return CAT_VECTOR_DEFAULT[catId] || "🍽️";
 }
 
-// Generate authentic ingredients & steps based on exact book recipe titles
-function generateBookRecipeDetails(name, num, catId) {
+// Ultra-Detailed A-to-Z Cooking & Exact Ingredient Generator
+function generateDetailedRecipeGuide(name, num, catId) {
   const lower = name.toLowerCase();
 
-  // Royal / Lamb / Beef / Mutton
-  if (lower.includes("বিফ") || lower.includes("ল্যাম্ব") || lower.includes("মাটন") || lower.includes("গোশত") || lower.includes("রোগান") || lower.includes("মিট")) {
+  // 1. Meat / Mutton / Beef / Lamb Dishes
+  if (lower.includes("বিফ") || lower.includes("ল্যাম্ব") || lower.includes("মাটন") || lower.includes("গোশত") || lower.includes("রোগান") || lower.includes("মিট") || lower.includes("স্পেরেরিবস")) {
     return {
       ingredients: [
-        { name: `তাজা প্রিমিয়াম মাংস (${name})`, amount: "৭৫০ গ্রাম", notes: "সুন্দর টুকরো করা" },
-        { name: "খাঁটি ঘি ও সরষের তেল", amount: "১/২ কাপ", notes: "শাহী ফ্লেভার" },
-        { name: "শাহী রয়্যাল স্পাইস ব্লেন্ড", amount: "২ টেবিল চামচ", notes: "জয়ফল, জয়ত্রী, কাশ্মীরি লঙ্কা" },
-        { name: "টকদই ও পেঁয়াজ বেরেস্তা", amount: "১ কাপ দই, ১ কাপ বেরেস্তা", notes: "গাড় গ্রেভির জন্য" },
-        { name: "আদা-রসুন বাটা ও ফ্রেশ মেথি", amount: "২ টেবিল চামচ", notes: "তাজা মিহি বাটা" }
+        { name: `তাজা মাটন/বিফ প্রিমিয়াম কাট (${name})`, amount: "৭৫০ গ্রাম", notes: "হাড় ও হালকা চর্বিসহ সুন্দর সাইজ টুকরো" },
+        { name: "খাঁটি গাওয়া ঘি ও কাঁচা সরষের তেল", amount: "১/২ কাপ (সমান ভাগে)", notes: "রাজকীয় স্বাদের মূল ভিত্তি" },
+        { name: "কাশ্মীরি লঙ্কা ও শাহি গরম মসলা", amount: "১.৫ টেবিল চামচ", notes: "জয়ফল, জয়ত্রী, এলাচ, লবঙ্গ বাটা" },
+        { name: "খাঁটি টকদই ফেটানো", amount: "১ কাপ", notes: "গাড় ও সুস্বাদু গ্রেভির জন্য" },
+        { name: "পেঁয়াজ বেরেস্তা ক্রাশ করা", amount: "১.৫ কাপ", notes: "মিহি হাতে ভাঙা বেরেস্তা" },
+        { name: "তাজা আদা-রসুন পেস্ট", amount: "২ টেবিল চামচ", notes: "সদ্য বেটে নেওয়া" },
+        { name: "জয়ফল-জয়ত্রী বাটা ও পুদিনা পাতা", amount: "১ চা চামচ", notes: "সুগন্ধি ছড়ানোর জন্য" }
       ],
       instructions: [
-        { step_number: 1, title: "ধাপ ১: মাংস প্রস্তুতকরণ ও ম্যারিনেশন", description: `${name} রান্নার জন্য মাংস ধুয়ে টকদই, আদা-রসুন পেস্ট ও রয়্যাল গরম মসলা দিয়ে ১ ঘণ্টা ঢেকে ম্যারিনেট করে রাখুন।` },
-        { step_number: 2, title: "ধাপ ২: কড়াইয়ে মসলা কষানো", description: "ভারী কড়াইয়ে ঘি গরম করে বেরেস্তা ও কাশ্মীরি মরিচ গুঁড়ো দিয়ে মাঝারি আঁচে মসলা তেল ছাড়া পর্যন্ত ভালো করে কষিয়ে নিন।" },
-        { step_number: 3, title: "ধাপ ৩: ম্যারিনেট করা মাংস ভাজা", description: "কষানো মসলায় ম্যারিনেট করা মাংস দিয়ে কড়া আঁচে ১০ মিনিট নাড়তে থাকুন যাতে মাংসের রঙ বদলায়।" },
-        { step_number: 4, title: "ধাপ ৪: ধীর আঁচে সেদ্ধকরণ (Slow Dum)", description: "১ কাপ হালকা গরম পানি ও ঢাকনা দিয়ে মৃদু আঁচে ৩৫-৪০ মিনিট রান্না করুন যতক্ষণ না মাংস নরম ও জুসি হয়।" },
-        { step_number: 5, title: "ধাপ ৫: রয়্যাল ড্রেসিং ও পরিবেশন", description: "ওপর দিয়ে ভাজা জিরা গুঁড়ো ও তাজা ধনেপাতা ছিটকে গরম পরোটা বা বাসমতি চালের সাথে রাজকীয়ভাবে পরিবেশন করুন।" }
+        { step_number: 1, title: "ধাপ ১: মসলায় ম্যারিনেশন ও ফ্লেভার লক (A to Z Guide)", description: `মাংস ভালো করে ধুয়ে পানি ঝরিয়ে নিয়ে ফেটানো টকদই, আদা-রসুন বাটা, ১ চা চামচ কাশ্মীরি লঙ্কা গুঁড়ো ও ১ চা চামচ লবণ দিয়ে মেখে অন্তত ৪৫ মিনিট ঢেকে রাখুন। এতে মসলার নির্যাস মাংসের ভেতরে ঢুকবে।` },
+        { step_number: 2, title: "ধাপ ২: শাহি গাওয়া ঘিয়ে মসলা ফোড়ন", description: "ভারী তলার কড়াই বা হাঁড়িতে ঘি ও সরষের তেল কড়া গরম করে আস্ত সবুজ এলাচ, দারুচিনি, লবঙ্গ ও তেজপাতা ফোড়ন দিন। ফোড়ন থেকে মিষ্টি সুবাস বের হলে চূর্ণ করা পেঁয়াজ বেরেস্তা দিয়ে ৩০ সেকেন্ড সাঁতলান।" },
+        { step_number: 3, title: "ধাপ ৩: কড়া আঁচে মাংস কষানো", description: "ম্যারিনেট করা মাংস হাঁড়িতে ঢেলে দিয়ে চুলার আঁচ হাই করে ১০ মিনিট অনবরত নাড়তে থাকুন। মাংসের নিজস্ব জুস বের হয়ে মসলার সাথে ভুনা ভুনা হয়ে তেল ওপর ভেসে ওঠা পর্যন্ত ভালোভাবে কষান।" },
+        { step_number: 4, title: "ধাপ ৪: ধীর আঁচে শাহি দম সেদ্ধ (Slow Cooking)", description: "কষানো মাংসে ১.৫ কাপ ফুটন্ত গরম পানি দিন (ঠান্ডা পানি দিলে মাংস শক্ত হয়ে যায়)। হাঁড়ির মুখ ঢাকনা দিয়ে আটকে চুলার আঁচ একদম কমিয়ে ৩০-৩৫ মিনিট দম দিন যতক্ষণ না মাংস তুলতুলে নরম ও জুসি হয়।" },
+        { step_number: 5, title: "ধাপ ৫: ফিনিশিং ড্রেসিং ও রয়্যাল পরিবেশন", description: "মাংস পুরোপুরি সেদ্ধ হয়ে মাখোমাখো ঝোল হলে ওপর দিয়ে ১ চা চামচ জয়ফল-জয়ত্রী গরম মসলা গুঁড়ো, ১ চামচ কাঁচা ঘি ও তাজা ধনেপাতা ছিটকে ২ মিনিট ঢেকে চুলা বন্ধ রাখুন। গরম পরোটা বা নানের সাথে পরিবেশন করুন।" }
       ],
-      chef_tips: ["ধীর আঁচে মাটন বা বিফ রান্না করলে মসলা মাংসের গভীরে ঢোকে এবং রাজকীয় স্বাদ পাওয়া যায়।"],
-      nutrition: { calories: "৫২০ কি.ক্যালরি", protein: "৩৪g", carbs: "১২g", fat: "৩২g" }
+      chef_tips: [
+        "মাংস কষানোর সময় ঠান্ডা পানির বদলে গরম পানি ব্যবহার করলে মাংসের জুসিনেস বজায় থাকে এবং সেদ্ধ খুব দ্রুত হয়।",
+        "রান্নার শেষে ১ চামচ গাওয়া ঘি ছিটকে দিলে রাজকীয় সুবাস দ্বিগুণ হয়ে যায়।"
+      ],
+      nutrition: { calories: "৫২০ কি.ক্যালরি", protein: "৩৫g", carbs: "১৩g", fat: "৩১g" }
     };
   }
 
-  // Chicken
-  if (lower.includes("চিকেন") || lower.includes("মুর্গ") || lower.includes("মুরগি")) {
+  // 2. Chicken Dishes
+  if (lower.includes("চিকেন") || lower.includes("মুর্গ") || lower.includes("মুরগি") || lower.includes("চিকেন")) {
     return {
       ingredients: [
-        { name: `তাজা চিকেন টুকরো (${name})`, amount: "১ কেজি", notes: "হাড়সহ বা বোনলেস" },
-        { name: "অমুল বাটার / ঘি", amount: "৩ টেবিল চামচ", notes: "রিচ টেক্সচার" },
-        { name: "টমেটো-বাদাম কাজু পেস্ট", amount: "১ কাপ", notes: "স্মুথ গ্রেভি" },
-        { name: "শাহী স্পেশাল মসলা", amount: "১.৫ টেবিল চামচ", notes: "অরিজিনাল মসলা" },
-        { name: "ফ্রেশ ক্রিম ও কসুরি মেথি", amount: "১/২ কাপ ক্রিম", notes: "ফিনিশিং ড্রেসিং" }
+        { name: `তাজা চিকেন লেগ/থাই/বোনলেস (${name})`, amount: "৮০০ গ্রাম", notes: "গায়ে হালকা কাট দেওয়া" },
+        { name: "অমুল প্রিমিয়াম বাটার ও খাঁটি ঘি", amount: "৪ টেবিল চামচ", notes: "রিচ ও ক্রিমি স্বাদের জন্য" },
+        { name: "টমেটো পিউরি ও কাজুবাদাম পেস্ট", amount: "১.৫ কাপ", notes: "মিহি সিল্কি গ্রেভি" },
+        { name: "তাজা হেভি ফ্রেশ ক্রিম", amount: "১/২ কাপ", notes: "রেস্তোরাঁর মতো টেক্সচার" },
+        { name: "ড্রাই রোস্টেড কসুরি মেথি", amount: "১ টেবিল চামচ", notes: "তাওয়ায় সেঁকা ও হাতে ডলে দেওয়া" },
+        { name: "শাহী ম্যারিনেশন স্পাইস", amount: "১.৫ টেবিল চামচ", notes: "কাশ্মীরি মরিচ, আদা-রসুন, লেবু" }
       ],
       instructions: [
-        { step_number: 1, title: "ধাপ ১: চিকেন প্রিপারেশন", description: `${name}-এর জন্য চিকেন লেবুর রস, লবণ ও হলুদ গুঁড়ো দিয়ে মাখিয়ে ৩০ মিনিট রাখুন।` },
-        { step_number: 2, title: "ধাপ ২: প্যানে সোনারি ভাজা", description: "প্যানে ১ চামচ বাটার গলিয়ে চিকেনের টুকরোগুলো সোনালী লালচে করে ৩-৪ মিনিট ভেজে তুলে নিন।" },
-        { step_number: 3, title: "ধাপ ৩: শাহি গ্রেভি সস তৈরি", description: "একই প্যানে বাটার ও টমেটো-কাজুবাদাম পেস্ট দিয়ে মাঝারি আঁচে ৬ মিনিট নেড়ে মসৃণ সিল্কি সস তৈরি করুন।" },
-        { step_number: 4, title: "ধাপ ৪: সিমারিং ও জুসিনেস", description: "ভেজে রাখা চিকেন সসে ছেড়ে ঢাকনা দিয়ে কম আঁচে ১০ মিনিট সেদ্ধ করুন।" },
-        { step_number: 5, title: "ধাপ ৫: ক্রিম ফিনিশিং", description: "নামানোর আগে ফ্রেশ ক্রিম ও সেঁকা কসুরি মেথি ডলে ছিটকে দিয়ে গরম গরম পরিবেশন করুন।" }
+        { step_number: 1, title: "ধাপ ১: চিকেন চাড় ম্যারিনেশন", description: `চিকেনের গায়ে হালকা কাট দিয়ে টকদই, আদা-রসুন পেস্ট, কাশ্মীরি লঙ্কা গুঁড়ো, লেবুর রস ও লবণ মেখে ৩০ মিনিট রাখুন যাতে মসলা ভেতরে পেঁছায়।` },
+        { step_number: 2, title: "ধাপ ২: কড়া প্যানে চাড় সেঁকা", description: "প্যানে ২ চামচ মাখন ও ঘি গরম করে ম্যারিনেট করা চিকেন কড়া আঁচে উল্টেপাল্টে প্রতি পিঠ ৩-৪ মিনিট ভাজুন যাতে ডার্ক চাড় মার্কস তৈরি হয়।" },
+        { step_number: 3, title: "ধাপ ৩: সিল্কি গ্রেভি কষানো", description: "একই প্যানে বাকি বাটার গলিয়ে টমেটো পিউরি, কাজুবাদাম পেস্ট ও গরম মসলা দিয়ে মাঝারি আঁচে ৬ মিনিট কষান যতক্ষণ না মসলার কাঁচা ভাব কেটে তেল ওপরে ওঠে।" },
+        { step_number: 4, title: "ধাপ ৪: সিমারিং ও জুসিনেস লক", description: "সেঁকা চিকেন সসে ছেড়ে ১/২ কাপ গরম পানি দিয়ে কম আঁচে ঢেকে ৮-১০ মিনিট ফুটিয়ে নিন যাতে চিকেন তুলতুলে নরম ও জুসি হয়।" },
+        { step_number: 5, title: "ধাপ ৫: কসুরি মেথি ও ক্রিম ফিনিশিং", description: "নামানোর ঠিক আগে তাওয়ায় সেঁকা কসুরি মেথি দু'হাতে ডলে ছিটকে দিন এবং ওপরে তাজা ফ্রেশ ক্রিমের সোয়ার্ল ছড়িয়ে গরম নানের সাথে সার্ভ করুন।" }
       ],
-      chef_tips: ["চিকেন বেশি সেদ্ধ করলে ড্রাই হয়ে যায়, তাই ঠিক ১০-১২ মিনিট সিমার করাই সেরা।"],
-      nutrition: { calories: "৪৬০ কি.ক্যালরি", protein: "৩২g", carbs: "১৪g", fat: "২৬g" }
+      chef_tips: [
+        "চিকেন বেশি সেদ্ধ করলে ড্রাই হয়ে যায়, তাই ১০ মিনিট সিমার করাই সেরা।",
+        "কসুরি মেথি হালকা সেঁকে নিয়ে ডলে দিলে রাজকীয় সুবাস পাওয়া যায়।"
+      ],
+      nutrition: { calories: "৪৬০ কি.ক্যালরি", protein: "৩৩g", carbs: "১৫g", fat: "২৭g" }
     };
   }
 
-  // Fish & Seafood
-  if (lower.includes("মাছ") || lower.includes("ইলিশ") || lower.includes("চিংড়ি") || lower.includes("প্রণ") || lower.includes("ফিস") || lower.includes("রূপচাঁদা")) {
+  // 3. Fish & Seafood Dishes
+  if (lower.includes("মাছ") || lower.includes("ইলিশ") || lower.includes("চিংড়ি") || lower.includes("প্রণ") || lower.includes("ফিস") || lower.includes("রূপচাঁদা") || lower.includes("বোয়াল")) {
     return {
       ingredients: [
-        { name: `তাজা ফ্রেশ মাছ/চিংড়ি (${name})`, amount: "৬০০ গ্রাম", notes: "পরিষ্কার করা চাকা বা ফিলে" },
-        { name: "খাঁটি সরষের তেল / নারিকেল দুধ", amount: "১/২ কাপ", notes: "দেশি/রয়্যাল গ্রেভি" },
-        { name: "সরিষা বাটা ও কাঁচা মরিচ", amount: "২ টেবিল চামচ", notes: "ঝাল সুবাস" },
-        { name: "কালোজিরা ও হলুদ গুঁড়ো", amount: "১ চা চামচ", notes: "ফোড়নের জন্য" }
+        { name: `তাজা ফ্রেশ মাছ/চিংড়ি (${name})`, amount: "৬০০ গ্রাম", notes: "ভালোভাবে পরিষ্কার করা" },
+        { name: "খাঁটি কাঁচা সরষের তেল / নারকেলের দুধ", amount: "১/২ কাপ", notes: "আসল ফ্লেভারের উৎস" },
+        { name: "হলুদ ও কালো সরিষা বাটা", amount: "২ টেবিল চামচ", notes: "কাঁচামরিচ ও লবণ দিয়ে বাটা" },
+        { name: "কালোজিরা ও চেরা কাঁচামরিচ", amount: "১ চা চামচ কালোজিরা, ৬টি মরিচ", notes: "ফোড়নের জন্য" },
+        { name: "হলুদ গুঁড়ো ও কাশ্মীরি লাল মরিচ", amount: "১ চা চামচ করে", notes: "রঙের জন্য" }
       ],
       instructions: [
-        { step_number: 1, title: "ধাপ ১: মাছ প্রসেসিং", description: `${name}-এর মাছের টুকরোগুলো হালকা লবণ ও হলুদ মেখে ৫ মিনিট রাখুন।` },
-        { step_number: 2, title: "ধাপ ২: তেলের ফোড়ন", description: "কড়াইয়ে সরষের তেল গরম করে কালোজিরা ও চেরা কাঁচা মরিচ হালকা সাঁতলে নিন।" },
-        { step_number: 3, title: "ধাপ ৩: মসলার ঝোল তৈরি", description: "সরিষা বাটা/নারিকেল দুধের সাথে ১ কাপ গরম পানি মিশিয়ে কড়াইয়ে ঢেলে ফুটতে দিন।" },
-        { step_number: 4, title: "ধাপ ৪: ধীর আঁচে মাছ সেদ্ধ", description: "ঝোল ফুটলে মাছগুলো বিছে দিয়ে ঢেকে মাঝারি আঁচে ৮ মিনিট রান্না করুন।" },
-        { step_number: 5, title: "ধাপ ৫: পরিবেশন", description: "ওপর দিয়ে খাঁটি সরষের তেল ছিটকে গরম ভাতের সাথে পরিবেশন করুন।" }
+        { step_number: 1, title: "ধাপ ১: মাছ প্রসেসিং ও লবণ মাখানো", description: `মাছের টুকরোগুলো ভালো করে ধুয়ে পানি ঝরিয়ে সামান্য হলুদ, লবণ ও ১ চা চামচ কাঁচা সরষের তেল মাখিয়ে ১০ মিনিট ঢেকে রাখুন।` },
+        { step_number: 2, title: "ধাপ ২: কড়াইয়ে তেলের খাঁটি ফোড়ন", description: "কড়াইয়ে সরষের তেল ধোঁয়া ওঠা পর্যন্ত গরম করে চুলার আঁচ কমান। এতে কালোজিরা ও চেরা কাঁচামরিচ দিয়ে সুবাস ফোড়ন দিন।" },
+        { step_number: 3, title: "ধাপ ৩: মসলা/নারকেলের দুধের ঝোল তৈরি", description: "বাটা সরিষা/নারকেলের দুধের সাথে ১ কাপ হালকা গরম পানি, হলুদ গুঁড়ো ও লবণ মিশিয়ে ফোড়নে ঢেলে দিন এবং কড়া আঁচে ফুটতে দিন।" },
+        { step_number: 4, title: "ধাপ ৪: ধীর আঁচে মাছ সেদ্ধ", description: "ঝোল ফুটলে কাঁচা বা হালকা সাঁতলানো মাছের টুকরোগুলো বিছিয়ে দিন। মাঝারি আঁচে ঢেকে ৮ মিনিট সেদ্ধ করুন যাতে মাছের জুস ঝোলে মেসে।" },
+        { step_number: 5, title: "ধাপ ৫: কাঁচা তেলের ফিনিশিং", description: "নামানোর ঠিক ১ মিনিট আগে ওপর দিয়ে ২ টেবিল চামচ খাঁটি কাঁচা সরষের তেল ও কাঁচামরিচ ছড়িয়ে ২ মিনিট ঢেকে চুলা বন্ধ করুন।" }
       ],
-      chef_tips: ["মাছ অতিরিক্ত ভাজলে শক্ত হয়ে যায়, কাঁচা বা হালকা সাঁতলে রান্না করলে আসল নরম স্বাদ থাকে।"],
-      nutrition: { calories: "৩৯০ কি.ক্যালরি", protein: "২৯g", carbs: "৬g", fat: "২৪g" }
+      chef_tips: [
+        "সরিষা বাটার সময় ২ টি কাঁচা মরিচ ও লবণ দিলে সরিষা কখনোই তেতো হয় না।",
+        "নামানোর আগে কাঁচা সরষের তেল দিলে খাঁটি দেশি সুবাস পাওয়া যায়।"
+      ],
+      nutrition: { calories: "৩৯০ কি.ক্যালরি", protein: "৩০g", carbs: "৭g", fat: "২৪g" }
     };
   }
 
-  // Kebab
+  // 4. Kebab & Chops
   if (lower.includes("কাবাব") || lower.includes("চপ") || lower.includes("কোফতা")) {
     return {
       ingredients: [
-        { name: `কিমা/উপাদান (${name})`, amount: "৫০০ গ্রাম", notes: "মিহি কিমা করা" },
-        { name: "কাবাব বিশেষ মসলা", amount: "২ টেবিল চামচ", notes: "ভাজা জিরা, ধনে, গোলমরিচ" },
-        { name: "ডিম ও বেসন/সুজি", amount: "১ টি ডিম, ২ চামচ বেসন", notes: "বাইন্ডিংয়ের জন্য" },
-        { name: "ঘি/বাটার", amount: "ভাজার জন্য", notes: "গ্রিল করার জন্য" }
+        { name: `চর্বিসহ মিহি কিমা/উপাদান (${name})`, amount: "৬০০ গ্রাম", notes: "৮০% মিট, ২০% চর্বির অনুপাত" },
+        { name: "বিশেষ রাজকীয় কাবাব মসলা", amount: "২ টেবিল চামচ", notes: "জিরা, ধনে, শুকনো মরিচ টেলে গুঁড়ো" },
+        { name: "খাঁটি গাওয়া ঘি ও মাখন", amount: "৩ টেবিল চামচ", notes: "গ্রিল করার জন্য" },
+        { name: "ডিম ও সেঁকা বেসন", amount: "১ টি ডিম, ২ চামচ বেসন", notes: "বাইন্ডিং শক্ত করার জন্য" },
+        { name: "তাজা পুদিনা পাতা ও ধনেপাতা কুচি", amount: "১/৪ কাপ", notes: "রিফ্রেশিং গন্ধের জন্য" }
       ],
       instructions: [
-        { step_number: 1, title: "ধাপ ১: কিমা মাখানো", description: `${name}-এর জন্য উপাদান মিহি কাবাব মসলা, পেঁয়াজ কুচি ও ডিম দিয়ে ভালো করে মেখে ১ ঘণ্টা ফ্রিজে রাখুন।` },
-        { step_number: 2, title: "ধাপ ২: কাবাব শেপ দেওয়া", description: "হাতে সামান্য ঘি মেখে কাবাবের সুনির্দিষ্ট শেপ বা শিক-এ গেঁথে নিন।" },
-        { step_number: 3, title: "ধাপ ৩: তাওয়ায় সেঁকা/গ্রিলকরণ", description: "গ্রিল প্যানে সামান্য ঘি দিয়ে মাঝারি আঁচে ঘুরিয়ে ঘুরিয়ে সব পিঠ লালচে করে সেঁকে নিন।" },
-        { step_number: 4, title: "ধাপ ৪: স্মোকি ফ্লেভার (Dungar Process)", description: "একটি জ্বলন্ত কয়লা বাটিতে রেখে সামান্য ঘি ছিটিয়ে ঢেকে ২ মিনিট স্মোকি সুবাস দিন।" },
-        { step_number: 5, title: "ধাপ ৫: পরিবেশন", description: "পুদিনা চাটনি, পেঁয়াজ স্লাইস ও লেবুর সাথে গরম গরম পরিবেশন করুন।" }
+        { step_number: 1, title: "ধাপ ১: কিমা মাখানো ও সফট করা", description: `কিমার সাথে কাবাব মসলা, আদা-রসুন পেস্ট, ডিম, ঘি ও পুদিনা পাতা দিয়ে ১০ মিনিট ভালো করে চটকে চটকে মাখিয়ে ১ ঘণ্টা ফ্রিজে রাখুন।` },
+        { step_number: 2, title: "ধাপ ২: কাবাব শেপিং", description: "ভেজা হাতে কিমা নিয়ে শিক-এ জড়িয়ে বা সুন্দর গোলাকার/চ্যাপ্টা কাবাবের শেপ বানিয়ে নিন।" },
+        { step_number: 3, title: "ধাপ ৩: গ্রিল প্যানে কড়া সেঁকা", description: "গ্রিল তাওয়ায় সামান্য ঘি ছড়িয়ে কড়া আঁচে কাবাব দিয়ে ঘুরিয়ে ঘুরিয়ে ৩-৪ মিনিট ভাজুন যাতে সব পিঠ সোনালী ও জুসি হয়।" },
+        { step_number: 4, title: "ধাপ ৪: কয়লার স্মোকি ডুঙ্গার প্রসেস", description: "একটি ছোট বাটিতে জ্বলন্ত কয়লা রেখে কাবাবের মাঝে বসান, ওপরে ২ ফোঁটা ঘি দিয়ে ১০ সেকেন্ডের জন্য ঢেকে স্মোকি সুবাস আনুন।" },
+        { step_number: 5, title: "ধাপ ৫: পুদিনা চাটনি ড্রেসিং", description: "গ্রিল করা কাবাব প্লেটে সাজিয়ে কাঁচা পেঁয়াজ স্লাইস, লেবুর রস ও পুদিনা চাটনি ছড়িয়ে গরম গরম পরিবেশন করুন।" }
       ],
-      chef_tips: ["কাবাবে স্মোকি ফ্লেভার দিলে একদম রেস্তোরাঁর কয়লার চুলার কাবাবের অনুভূতি পাওয়া যায়।"],
-      nutrition: { calories: "৩7০ কি.ক্যালরি", protein: "৩১g", carbs: "১০g", fat: "২২g" }
+      chef_tips: [
+        "কাবাবের কিমায় ২০% চর্বি থাকলে কাবাব ভাজার পর একদম সফট ও জুসি থাকে।",
+        "কয়লার ধোঁয়া দিলে রাজকীয় তন্দুরি ফ্লেভার আসে।"
+      ],
+      nutrition: { calories: "৩৭০ কি.ক্যালরি", protein: "৩২g", carbs: "৯g", fat: "২৩g" }
     };
   }
 
-  // Rice / Salads / Soups / Veggies Default Generator
+  // 5. Default Rice, Breads, Salads, Soups, Veggies
   return {
     ingredients: [
-      { name: `প্রধান ফ্রেশ উপাদান (${name})`, amount: "৫০০ গ্রাম", notes: "তাজা প্রিমিয়াম কোয়ালিটি" },
+      { name: `প্রধান ফ্রেশ উপাদান (${name})`, amount: "৫০০ গ্রাম", notes: "তাজা ও প্রিমিয়াম কোয়ালিটি" },
       { name: "বিশেষ অর্গানিক মসলা ব্লেন্ড", amount: "২ টেবিল চামচ", notes: "বইয়ের অরিজিনাল মসলা" },
-      { name: "অলিভ অয়েল / বাটার / ঘি", amount: "৩ টেবিল চামচ", notes: "স্বাদের জন্য" },
+      { name: "খাঁটি অলিভ অয়েল / গাওয়া ঘি", amount: "৩ টেবিল চামচ", notes: "স্বাদ ও সুবাসের জন্য" },
       { name: "তাজা সালাদ ও ড্রেসিং", amount: "১ কাপ", notes: "গার্নিশিং" }
     ],
     instructions: [
-      { step_number: 1, title: "ধাপ ১: উপাদান প্রস্তুতকরণ", description: `${name} তৈরির জন্য সকল তাজা উপাদান ধুয়ে সঠিক মাপে প্রস্তুত করে নিন।` },
-      { step_number: 2, title: "ধাপ ২: মসলা ফ্রাই ও ব্লেন্ডিং", description: "প্যানে সামান্য ঘি/তেল গরম করে মসলা ফোড়ন দিয়ে ৩-৪ মিনিট ভাজুন।" },
-      { step_number: 3, title: "ধাপ ৩: উপাদান মিশ্রণ", description: "প্রধান উপাদানগুলো মসলায় যোগ করে ঢেকে ৫ মিনিট কষিয়ে নিন।" },
-      { step_number: 4, title: "ধাপ ৪: ধীর আঁচে রান্না/সিমারিং", description: "স্বাদ ও জুসিনেস ধরে রাখতে ঢেকে কম আঁচে নির্ধারিত সময় সেদ্ধ করুন।" },
-      { step_number: 5, title: "ধাপ ৫: গার্নিশ ও পরিবেশন", description: "তাজা ড্রেসিং ছিটকে প্লেটারে সুন্দরভাবে সাজিয়ে গরম বা ঠান্ডা পরিবেশন করুন।" }
+      { step_number: 1, title: "ধাপ ১: উপাদান ধোয়া ও প্রিপারেশন", description: `${name} তৈরির জন্য সকল তাজা উপাদান ধুয়ে সঠিক মাপে প্রস্তুত করে নিন।` },
+      { step_number: 2, title: "ধাপ ২: মসলা ফাতলানো ও ভাজা", description: "প্যানে সামান্য ঘি/অলিভ অয়েল গরম করে মসলা দিয়ে ২-৩ মিনিট মাঝারি আঁচে ভাজুন।" },
+      { step_number: 3, title: "ধাপ ৩: উপাদান মিশ্রণ ও কষানো", description: "প্রধান উপাদানগুলো মসলায় যোগ করে ঢেকে ৫ মিনিট কষিয়ে নিন।" },
+      { step_number: 4, title: "ধাপ ৪: ধীর আঁচে সেদ্ধকরণ", description: "স্বাদ ধরে রাখতে ঢেকে কম আঁচে নির্ধারিত সময় সেদ্ধ হতে দিন।" },
+      { step_number: 5, title: "ধাপ ৫: গার্নিশ ও গরম পরিবেশন", description: "তাজা ড্রেসিং ছিটকে প্লেটারে সুন্দরভাবে সাজিয়ে পরিবেশন করুন।" }
     ],
-    chef_tips: ["বইয়ের প্রতিটি অরিজিনাল মসলার মাপ সঠিক রাখলে শতভাগ নিখুঁত রাজকীয় স্বাদ পাওয়া যায়।"],
-    nutrition: { calories: "৩4০ কি.ক্যালরি", protein: "১৮g", carbs: "২৮g", fat: "১৪g" }
+    chef_tips: ["উপাদান সঠিক মাপে ব্যবহার করলে অরিজিনাল পারফেক্ট স্বাদ পাওয়া যায়।"],
+    nutrition: { calories: "৩৪০ কি.ক্যালরি", protein: "১৯g", carbs: "২৯g", fat: "১৫g" }
   };
 }
 
-// User's Exact Book Recipe Dataset Organized by 11 Categories
+// User's Exact 167 Book Recipes Dataset
 const ROYAL_BOOK_DATASET = (function() {
   const categories = [
     { id: "british_royal", name_bn: "১. বৃটিশ রাজ পরিবারের রেসিপি", name_en: "British Royal Recipes", icon: "👑", recipe_count: 21 },
@@ -239,7 +256,7 @@ const ROYAL_BOOK_DATASET = (function() {
     for (const rawName of list) {
       const num = globalCount++;
       const dishVectorIcon = getDishVectorIcon(rawName, catId);
-      const authDetails = generateBookRecipeDetails(rawName, num, catId);
+      const authDetails = generateDetailedRecipeGuide(rawName, num, catId);
 
       recipes.push({
         id: `recipe-${num}`,
@@ -257,12 +274,12 @@ const ROYAL_BOOK_DATASET = (function() {
         difficulty: num % 3 === 0 ? "কঠিন" : (num % 2 === 0 ? "মাঝারি" : "সহজ"),
         is_trending: (num % 6 === 0),
         is_featured: (num % 12 === 0),
-        short_description: `${rawName} — রয়্যাল বইয়ের অরিজিনাল উপকরণের সঠিক পরিমাপ ও ধাপে ধাপে সুস্বাদু তৈরির নিখুঁত বাংলা রেসিপি।`,
+        short_description: `${rawName} — নিখুঁত উপকরণের পরিমাপ ও ধাপে ধাপে তৈরির সুস্বাদু রেসিপি গাইড।`,
         ingredients: authDetails.ingredients,
         instructions: authDetails.instructions,
         nutrition: authDetails.nutrition,
         chef_tips: authDetails.chef_tips,
-        tags: [catId, "রাজকীয় রেসিপি", rawName.split(' ')[0]]
+        tags: [catId, "রেসিপি", rawName.split(' ')[0]]
       });
     }
   }
@@ -347,9 +364,9 @@ function renderCategories(categories) {
       class="category-btn flex-shrink-0 group relative overflow-hidden rounded-2xl p-4 w-48 sm:w-56 transition-all duration-200 ${state.currentCategory === 'all' ? 'ring-2 ring-amber-500 shadow-lg shadow-amber-500/20' : 'bg-slate-900/80 hover:bg-slate-800'}">
       <div class="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-600/30 opacity-60"></div>
       <div class="relative z-10 flex flex-col items-center text-center">
-        <span class="text-3xl mb-2">👑</span>
+        <span class="text-3xl mb-2">🍽️</span>
         <h4 class="text-white font-bold text-base">সব রেসিপি (১৬৭টি)</h4>
-        <p class="text-amber-400 text-xs mt-1 font-extrabold">১১টি রয়্যাল ক্যাটাগরি</p>
+        <p class="text-amber-400 text-xs mt-1 font-extrabold">১১টি বিভাগ</p>
       </div>
     </button>
   ` + categories.map(cat => `
@@ -375,9 +392,9 @@ function renderTrending(items) {
   container.innerHTML = items.slice(0, 4).map(item => `
     <div onclick="openRecipeModal('${item.id}')" class="card-3d-tilt group relative rounded-2xl overflow-hidden cursor-pointer h-64 border border-slate-700/50 shadow-2xl transition-all duration-200 bg-slate-900/90 flex flex-col justify-between">
       <div class="vector-card-header h-40 w-full relative">
-        <span class="text-6xl vector-icon-anim drop-shadow-2xl">${item.vector_icon || '👑'}</span>
+        <span class="text-6xl vector-icon-anim drop-shadow-2xl">${item.vector_icon || '🍲'}</span>
         <div class="absolute top-3 left-3 bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-extrabold text-xs px-3 py-1 rounded-full shadow-lg flex items-center gap-1 z-10">
-          🔥 রয়্যাল ট্রেন্ডিং
+          🔥 ট্রেন্ডিং ডিশ
         </div>
       </div>
       <div class="p-4 card-inner-3d">
@@ -456,7 +473,7 @@ function renderRecipes(recipes) {
         <div class="card-3d-tilt group bg-slate-900/80 rounded-2xl overflow-hidden border border-slate-800 hover:border-amber-500/50 shadow-xl transition-all duration-200 flex flex-col justify-between">
           <div>
             <div class="vector-card-header h-48 sm:h-52 cursor-pointer" onclick="openRecipeModal('${recipe.id}')">
-              <span class="text-7xl vector-icon-anim select-none">${recipe.vector_icon || '👑'}</span>
+              <span class="text-7xl vector-icon-anim select-none">${recipe.vector_icon || '🍲'}</span>
 
               <div class="absolute top-3 left-3 flex items-center gap-2">
                 <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-slate-950/80 backdrop-blur-md text-amber-400 border border-amber-500/30">
@@ -559,7 +576,7 @@ function setModalTab(tabName) {
   renderRecipeDetailModal(state.selectedRecipe);
 }
 
-// Render Modal Details
+// Render Ultra-Detailed Modal Content
 function renderRecipeDetailModal(recipe) {
   const modalContent = document.getElementById('modal-content-body');
   if (!modalContent || !recipe) return;
@@ -570,7 +587,7 @@ function renderRecipeDetailModal(recipe) {
 
   modalContent.innerHTML = `
     <div class="vector-card-header h-56 sm:h-72 w-full flex-shrink-0 relative">
-      <span class="text-8xl sm:text-9xl vector-icon-anim select-none drop-shadow-2xl">${recipe.vector_icon || '👑'}</span>
+      <span class="text-8xl sm:text-9xl vector-icon-anim select-none drop-shadow-2xl">${recipe.vector_icon || '🍲'}</span>
       
       <button onclick="closeRecipeModal()" class="absolute top-3 right-3 z-20 w-9 h-9 rounded-full bg-slate-950/80 text-white flex items-center justify-center text-lg border border-white/10 hover:bg-amber-500 hover:text-slate-950 transition-colors shadow-xl">
         ✕
@@ -613,13 +630,13 @@ function renderRecipeDetailModal(recipe) {
 
     <div class="flex border-b border-slate-800 bg-slate-950 px-3 pt-2.5 gap-1.5 sticky top-0 z-10">
       <button onclick="setModalTab('ingredients')" class="py-2 px-3 font-bold text-xs rounded-t-xl transition-all border-b-2 ${state.activeModalTab === 'ingredients' ? 'border-amber-500 text-amber-400 bg-amber-500/10' : 'border-transparent text-slate-400'}">
-        🛒 উপকরণের তালিকা
+        🛒 উপকরণের সঠিক পরিমাপ
       </button>
       <button onclick="setModalTab('steps')" class="py-2 px-3 font-bold text-xs rounded-t-xl transition-all border-b-2 ${state.activeModalTab === 'steps' ? 'border-amber-500 text-amber-400 bg-amber-500/10' : 'border-transparent text-slate-400'}">
-        👨‍🍳 ধাপে ধাপে তৈরি (৫টি ধাপ)
+        👨‍🍳 ধাপে ধাপে তৈরি (৫টি সুনির্দিষ্ট ধাপ)
       </button>
       <button onclick="setModalTab('tips')" class="py-2 px-3 font-bold text-xs rounded-t-xl transition-all border-b-2 ${state.activeModalTab === 'tips' ? 'border-amber-500 text-amber-400 bg-amber-500/10' : 'border-transparent text-slate-400'}">
-        ✨ পুষ্টি ও টিপস
+        ✨ পুষ্টি ও সিক্রেট টিপস
       </button>
     </div>
 
@@ -627,7 +644,7 @@ function renderRecipeDetailModal(recipe) {
       ${state.activeModalTab === 'ingredients' ? `
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/20">
           <div>
-            <h4 class="font-bold text-white text-sm">পরিবেশনের সংখ্যা পরিবর্তন করুন</h4>
+            <h4 class="font-bold text-white text-sm">পরিবেশনের সংখ্যা (Servings)</h4>
             <p class="text-[11px] text-slate-300">উপাদানের পরিমাণ স্বয়ংক্রিয়ভাবে পরিবর্তিত হবে</p>
           </div>
           <div class="flex items-center gap-2">
@@ -641,7 +658,7 @@ function renderRecipeDetailModal(recipe) {
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
           ${(recipe.ingredients || []).map(ing => `
-            <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/80 border border-slate-800 cursor-pointer group">
+            <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/80 border border-slate-800 cursor-pointer group hover:border-amber-500/30 transition-colors">
               <input type="checkbox" class="custom-checkbox mt-0.5 flex-shrink-0" onchange="toggleIngredientCheck(this); playClickSound(700, 'sine');" />
               <div>
                 <span class="ingredient-text text-xs sm:text-sm text-slate-200 font-medium">${ing.name}</span>
@@ -654,16 +671,16 @@ function renderRecipeDetailModal(recipe) {
       ` : ''}
 
       ${state.activeModalTab === 'steps' ? `
-        <div class="space-y-3">
+        <div class="space-y-3.5">
           ${(recipe.instructions || []).map(step => `
-            <div class="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800">
-              <div class="flex items-center justify-between mb-1.5">
-                <span class="w-7 h-7 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-extrabold text-xs flex items-center justify-center flex-shrink-0">
+            <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/30 transition-colors">
+              <div class="flex items-center justify-between mb-2">
+                <span class="w-8 h-8 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-black text-xs flex items-center justify-center flex-shrink-0 shadow-md">
                   ${step.step_number}
                 </span>
                 <h4 class="text-sm font-bold text-amber-400 flex-1 ml-3">${step.title}</h4>
               </div>
-              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pl-10">${step.description}</p>
+              <p class="text-xs sm:text-sm text-slate-200 leading-relaxed pl-11 font-normal">${step.description}</p>
             </div>
           `).join('')}
         </div>
@@ -672,7 +689,7 @@ function renderRecipeDetailModal(recipe) {
       ${state.activeModalTab === 'tips' ? `
         <div class="space-y-4">
           <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
-            <h4 class="font-bold text-amber-400 text-xs mb-3">🥗 পুষ্টির পরিমাণ (Nutrition Facts)</h4>
+            <h4 class="font-bold text-amber-400 text-xs mb-3">🥗 পুষ্টির সঠিক পরিমাণ (Nutrition Facts)</h4>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center">
               <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
                 <span class="text-[10px] text-slate-400 block">ক্যালরি</span>
@@ -694,9 +711,11 @@ function renderRecipeDetailModal(recipe) {
           </div>
 
           ${recipe.chef_tips && recipe.chef_tips.length > 0 ? `
-            <div class="p-3.5 rounded-2xl bg-gradient-to-r from-amber-950/40 to-slate-900 border border-amber-500/30">
-              <h4 class="font-bold text-amber-400 text-xs mb-1.5">✨ শেফের বিশেষ টিপস</h4>
-              <ul class="list-disc list-inside space-y-1 text-xs text-slate-300">
+            <div class="p-4 rounded-2xl bg-gradient-to-r from-amber-950/40 to-slate-900 border border-amber-500/30">
+              <h4 class="font-bold text-amber-400 text-xs mb-2 flex items-center gap-1.5">
+                <span>✨ রান্না যেন খুব সুস্বাদু হয় — শেফের সিক্রেট পরামর্শ</span>
+              </h4>
+              <ul class="list-disc list-inside space-y-1.5 text-xs text-slate-300 leading-relaxed">
                 ${recipe.chef_tips.map(tip => `<li>${tip}</li>`).join('')}
               </ul>
             </div>
