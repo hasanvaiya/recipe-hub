@@ -4,43 +4,7 @@
 **ইনস্টিটিউট**: Uttara University (Dept. of CSE, Running Student)  
 **হোয়াটসঅ্যাপ**: [01400336907](https://wa.me/8801400336907)  
 
----
 
-## 🚀 GitHub Pages-এ সম্পূর্ণ ফ্রিতে লাইভ করার নিয়ম (Direct GitHub Run)
-
-এই প্রজেক্টটি এমনভাবে তৈরি করা হয়েছে যে **GitHub Pages**-এ কোনো সার্ভার বা কনফিগারেশন ছাড়াই ১-ক্লিকে সরাসরি লাইভ চলবে! 
-
-### 📌 ধাপ ১: GitHub-এ একটি রেপোজিটরি (Repository) তৈরি করুন
-1. [GitHub.com](https://github.com)-এ লগইন করুন।
-2. ডানদিকের উপরে **`+`** আইকনে ক্লিক করে **`New repository`** সিলেক্ট করুন।
-3. Repository name দিন: `recipe-hub` (অথবা আপনার পছন্দমতো নাম)।
-4. `Public` সিলেক্ট রেখে **`Create repository`** ক্লিকে রেপো তৈরি করুন।
-
----
-
-### 📌 ধাপ ২: কোড GitHub-এ পুশ করুন (Terminal / VS Code)
-আপনার কম্পিউটার থেকে টার্মিনালে নিচের কমান্ডগুলো রান করুন:
-
-```bash
-git init
-git add .
-git commit -m "Initial commit - 500 recipes 3D hub"
-git branch -M main
-git remote add origin https://github.com/YOUR_GITHUB_USERNAME/recipe-hub.git
-git push -u origin main
-```
-*(ধরে নেওয়া হচ্ছে `YOUR_GITHUB_USERNAME`-এর জায়গায় আপনার আসল গিটহাব ইউজারনেম বসাবেন)*
-
----
-
-### 📌 ধাপ ৩: GitHub Pages অন করুন (১-ক্লিক লাইভ)
-1. গিটহাবে আপনার প্রজেক্টের **`Settings`** ট্যাবে যান।
-2. বামপাশের মেনু থেকে **`Pages`** অপশনে ক্লিক করুন।
-3. **Branch** ড্রপডাউন থেকে **`main`** নির্বাচন করুন এবং ফাইল ফোল্ডার **`/(root)`** সিলেক্ট রেখে **`Save`** দিন।
-4. মাত্র ৩০ সেকেন্ডের মধ্যে আপনার ফ্রি লাইভ লিঙ্ক তৈরি হয়ে যাবে:  
-   👉 **`https://YOUR_GITHUB_USERNAME.github.io/recipe-hub/`**
-
----
 
 ## ✨ প্রজেক্টের বৈশিষ্ট্যসমূহ:
 - 🍲 **৫০০টি ভিন্ন ভিন্ন খাবার**: বাঙালি, ভারতীয়, চাইনিজ, ফাস্ট ফুড, ইতালীয়, মধ্যপ্রাচ্য, আমেরিকান, সামুদ্রিক খাবার, মিষ্টি ও স্যুপের সম্পূর্ণ তালিকা।
