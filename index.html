@@ -26,7 +26,7 @@
   </script>
 
   <!-- Custom 3D Stylesheet with Cache Busting -->
-  <link rel="stylesheet" href="css/custom.css?v=8.0">
+  <link rel="stylesheet" href="css/custom.css?v=9.0">
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-amber-500 selection:text-slate-950 relative overflow-x-hidden">
 
@@ -109,35 +109,37 @@
     </div>
   </header>
 
-  <!-- ================= HERO ANIMATED WELCOME SECTION ================= -->
-  <section class="relative min-h-[480px] sm:min-h-[520px] flex items-center justify-center overflow-hidden py-16 px-4 z-10">
+  <!-- ================= HERO ANIMATED 3D WEBSITE TITLE & SEARCH SECTION ================= -->
+  <section class="relative min-h-[400px] sm:min-h-[440px] flex items-center justify-center overflow-hidden py-12 px-4 z-10">
     <div class="absolute inset-0 z-0">
-      <div class="absolute inset-0 bg-gradient-to-br from-amber-950/20 via-slate-950 to-orange-950/30"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-amber-950/30 via-slate-950 to-orange-950/40"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent"></div>
     </div>
 
-    <!-- Hero Content -->
-    <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6">
-      <span class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-amber-500/20 via-orange-500/30 to-amber-500/20 border border-amber-500/40 text-amber-300 text-xs sm:text-sm font-black tracking-wide shadow-xl animate-pulse">
-        🌸 সুস্বাদু স্বাদের ডিজিটাল ভুবনে আপনাকে স্বাগতম 🌸
+    <!-- Hero Content with 3D Brand Title -->
+    <div class="relative z-10 max-w-4xl mx-auto text-center space-y-5">
+      
+      <!-- Crown Badge -->
+      <span class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-amber-500/20 via-orange-500/30 to-amber-500/20 border border-amber-500/40 text-amber-300 text-xs sm:text-sm font-black tracking-widest uppercase shadow-xl animate-pulse">
+        👑 রয়্যাল ডিজিটাল রেসিপি বুক 👑
       </span>
       
-      <h1 class="text-3.5xl sm:text-5.5xl lg:text-6.5xl font-black text-white leading-tight tracking-tight welcome-text-anim">
-        মন মাতানো স্বাদের ডিজিটাল পাকঘরে <br/>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200 welcome-gradient-shimmer">
-          আপনার রান্নার অভিজ্ঞতা হোক আনন্দময়!
-        </span> 🍲✨
+      <!-- Prominent 3D Bengali Website Title -->
+      <h1 class="text-6xl sm:text-7.5xl lg:text-9xl font-black text-white leading-none tracking-tight welcome-text-anim drop-shadow-2xl">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-amber-400 to-orange-500 welcome-gradient-shimmer">
+          রন্ধনঘর
+        </span>
       </h1>
 
-      <p class="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium welcome-fade-in">
-        প্রতিটি খাবারের রয়েছে নিজস্ব ইতিহাস ও অপূর্ব স্বাদ। আমাদের সহজ ও নিখুঁত রেসিপি গাইডের মাধ্যমে খুব সহজেই ঘরে তৈরি করুন দেশ-বিদেশের সেরা সব সুস্বাদু পদ। আজই আপনার প্রিয় ডিশটি বেছে নিন এবং স্বাদের উৎসবে মেতে উঠুন!
+      <p class="text-amber-300/90 text-sm sm:text-xl font-bold tracking-wide max-w-2xl mx-auto leading-relaxed">
+        ১৬৭টি রাজকীয় ও সুস্বাদু খাবারের ৩ডি ডিজিটাল পাকঘর 🍲✨
       </p>
 
-      <!-- Smart Live Search Bar -->
-      <div class="max-w-2xl mx-auto pt-2 welcome-search-anim">
+      <!-- Smart Instant Global Search Bar -->
+      <div class="max-w-2xl mx-auto pt-4 welcome-search-anim">
         <div class="relative flex items-center">
           <input type="text" id="search-input" 
-            placeholder="খাবারের নাম বা নম্বর দিয়ে খুঁজুন (যেমন: ১, বিফ রোগান জোস, চিকেন টিক্কা, বোয়াল মাছ)..."
+            placeholder="খাবারের নাম বা নম্বর দিয়ে খুঁজুন (যেমন: ১, বিফ রোগান জোস, চিকেন, কাবাব, বোয়াল)..."
             class="w-full py-4 sm:py-5 pl-14 pr-28 rounded-2xl bg-slate-900/90 border border-slate-700 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/40 text-white placeholder-slate-400 text-sm sm:text-base outline-none shadow-2xl backdrop-blur-md transition-all">
           <span class="absolute left-5 text-xl text-amber-500">🔍</span>
           <button onclick="filterAndRender()" class="absolute right-3 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold text-xs sm:text-sm transition-all shadow-lg shadow-amber-500/20">
@@ -154,11 +156,12 @@
           <button onclick="document.getElementById('search-input').value='জন মেজর'; filterAndRender();" class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 hover:border-amber-500 text-slate-300 hover:text-amber-400 transition-colors">১৬২. জন মেজর'স বোয়াল</button>
         </div>
       </div>
+
     </div>
   </section>
 
   <!-- ================= CUISINE CATEGORIES CAROUSEL ================= -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 relative z-20 mb-12">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-4 relative z-20 mb-12">
     <div class="flex items-center justify-between mb-4">
       <h3 class="text-xl font-bold text-white flex items-center gap-2">
         <span>📂 ১১টি সুস্বাদু খাবার বিভাগ</span>
@@ -417,7 +420,7 @@
     </div>
   </div>
 
-  <!-- Application JS with Cache Busting v=8.0 -->
-  <script src="frontend/js/app.js?v=8.0"></script>
+  <!-- Application JS with Cache Busting v=9.0 -->
+  <script src="frontend/js/app.js?v=9.0"></script>
 </body>
 </html>
