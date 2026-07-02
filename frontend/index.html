@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="bn" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>রন্ধনঘর - ৫০০+ বিশ্বমানের ৩ডি রেসিপি হাব | 500+ Global Recipe Hub</title>
+  <meta name="description" content="বাঙালি,ভারতীয়, চাইনিজ, ফাস্ট ফুড, ইতালীয়, মধ্যপ্রাচ্য, আমেরিকান, সামুদ্রিক খাবার, মিষ্টি ও স্যুপের ৫০০টি সম্পূর্ণ বাংলা রেসিপি গাইড।">
+  
+  <!-- Tailwind CSS CDN v3 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            amber: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom 3D Stylesheet -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-amber-500 selection:text-slate-950 relative overflow-x-hidden">
+
+  <!-- Ambient Floating Glow Background Elements -->
+  <div class="fixed top-10 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none ambient-glow-1 z-0"></div>
+  <div class="fixed bottom-20 right-1/4 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl pointer-events-none ambient-glow-2 z-0"></div>
+
+  <!-- ================= HEADER & NAVIGATION ================= -->
+  <header class="sticky top-0 z-40 glass-panel-3d transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center text-2xl shadow-lg shadow-amber-500/30 group-hover:scale-110 group-hover:rotate-3 transition-transform">
+          🍲
+        </div>
+        <div>
+          <span class="text-xl sm:text-2xl font-black text-white tracking-tight group-hover:text-amber-400 transition-colors">
+            রন্ধন<span class="text-amber-500">ঘর</span>
+          </span>
+          <span class="text-[10px] uppercase font-extrabold tracking-widest text-amber-400/90 block -mt-1">
+            500 GLOBAL RECIPES • 10 CATEGORIES
+          </span>
+        </div>
+      </a>
+
+      <!-- Quick Category Navigation (Desktop) -->
+      <nav class="hidden lg:flex items-center gap-5 text-xs sm:text-sm font-bold text-slate-300">
+        <button onclick="selectCategory('all')" class="hover:text-amber-400 transition-colors">সব (৫০০)</button>
+        <button onclick="selectCategory('bengali')" class="hover:text-amber-400 transition-colors">বাঙালি</button>
+        <button onclick="selectCategory('indian')" class="hover:text-amber-400 transition-colors">ভারতীয়</button>
+        <button onclick="selectCategory('chinese_east_asian')" class="hover:text-amber-400 transition-colors">চাইনিজ</button>
+        <button onclick="selectCategory('fastfood_street')" class="hover:text-amber-400 transition-colors">ফাস্ট ফুড</button>
+        <button onclick="selectCategory('italian_european')" class="hover:text-amber-400 transition-colors">ইতালীয়</button>
+        <button onclick="selectCategory('middle_eastern')" class="hover:text-amber-400 transition-colors">মধ্যপ্রাচ্য</button>
+        <button onclick="selectCategory('seafood')" class="hover:text-amber-400 transition-colors">সি-ফুড</button>
+      </nav>
+
+      <!-- Right Action Controls -->
+      <div class="flex items-center gap-3">
+        <!-- Audio Sound Effects Toggle -->
+        <button onclick="state.soundEnabled = !state.soundEnabled; this.innerText = state.soundEnabled ? '🔊' : '🔇';" 
+          class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 hover:border-amber-500/40 transition-colors" title="সাউন্ড এফেক্টস">
+          🔊
+        </button>
+
+        <!-- Favorites Counter -->
+        <button onclick="selectCategory('all');" class="relative p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 text-slate-200 transition-colors flex items-center gap-2">
+          <span class="text-lg">❤️</span>
+          <span class="text-xs font-bold text-amber-400 hidden sm:inline">সেভড</span>
+          <span id="fav-count" class="w-5 h-5 rounded-full bg-amber-500 text-slate-950 font-bold text-xs flex items-center justify-center shadow-md shadow-amber-500/40">0</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 text-slate-200 text-lg transition-colors">
+          🌙
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="lg:hidden p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-200">
+          ☰
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800 bg-slate-950/95 p-4 space-y-1.5 text-xs font-semibold text-slate-300">
+      <button onclick="selectCategory('all'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900 text-amber-400">🍽️ সব ৫০০ টি রেসিপি</button>
+      <button onclick="selectCategory('bengali'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">১. বাঙালি ও বাংলাদেশী (১-৫০)</button>
+      <button onclick="selectCategory('indian'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">২.ভারতীয় ও দক্ষিণ এশীয় (৫১-১০০)</button>
+      <button onclick="selectCategory('chinese_east_asian'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৩. চাইনিজ ও ইস্ট এশিয়ান (১০১-১৫০)</button>
+      <button onclick="selectCategory('fastfood_street'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৪. ফাস্ট ফুড ও স্ট্রিট ফুড (১৫১-২০০)</button>
+      <button onclick="selectCategory('italian_european'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৫. ইতালীয় ও ইউরোপীয় (২০১-২৫০)</button>
+      <button onclick="selectCategory('middle_eastern'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৬. মধ্যপ্রাচ্য ও তুর্কি (২৫১-৩০১)</button>
+      <button onclick="selectCategory('american_mexican'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৭. আমেরিকান ও মেক্সিকান (৩০১-৩৫০)</button>
+      <button onclick="selectCategory('seafood'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৮. সামুদ্রিক খাবার / সি-ফুড (৩৫১-৪০০)</button>
+      <button onclick="selectCategory('desserts_bakery'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">৯. ডেজার্ট ও মিষ্টি (৪০১-৪৫০)</button>
+      <button onclick="selectCategory('soups_beverages'); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full text-left py-2 px-3 rounded-lg hover:bg-slate-900">১০. স্যুপ, সালাদ ও পানীয় (৪৫১-৫০২০)</button>
+    </div>
+  </header>
+
+  <!-- ================= HERO ANIMATED WELCOME SECTION ================= -->
+  <section class="relative min-h-[480px] sm:min-h-[520px] flex items-center justify-center overflow-hidden py-16 px-4 z-10">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-amber-950/20 via-slate-950 to-orange-950/30"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6">
+      <span class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-amber-500/20 via-orange-500/30 to-amber-500/20 border border-amber-500/40 text-amber-300 text-xs sm:text-sm font-black tracking-wide shadow-xl animate-pulse">
+        ✨ রন্ধনঘরে আপনাকে স্বাগতম • Welcome to RandhanGhor ✨
+      </span>
+      
+      <h1 class="text-3.5xl sm:text-5.5xl lg:text-6.5xl font-black text-white leading-tight tracking-tight welcome-text-anim">
+        রান্নার সুস্বাদু জগতে <br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200 welcome-gradient-shimmer">
+          আপনাকে আন্তরিক উষ্ণ সম্ভাষণ!
+        </span> 👨‍🍳✨
+      </h1>
+
+      <p class="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium welcome-fade-in">
+        আমাদের এই ডিজিটাল পাকঘরে খুঁজে নিন দেশ-বিদেশের সুস্বাদু সব পদের সেরা রেসিপি। আপনার পছন্দের খাবারটি নির্বাচন করুন এবং সহজ ধাপে রান্নার আনন্দ উপভোগ করুন!
+      </p>
+
+      <!-- Smart Live Search Bar -->
+      <div class="max-w-2xl mx-auto pt-2 welcome-search-anim">
+        <div class="relative flex items-center">
+          <input type="text" id="search-input" 
+            placeholder="খাবারের নাম বা নম্বর দিয়ে খুঁজুন (যেমন: ১, কাচ্চি, বাটার চিকেন, পিৎজা, সুশি)..."
+            class="w-full py-4 sm:py-5 pl-14 pr-28 rounded-2xl bg-slate-900/90 border border-slate-700 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/40 text-white placeholder-slate-400 text-sm sm:text-base outline-none shadow-2xl backdrop-blur-md transition-all">
+          <span class="absolute left-5 text-xl text-amber-500">🔍</span>
+          <button onclick="filterAndRender()" class="absolute right-3 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold text-xs sm:text-sm transition-all shadow-lg shadow-amber-500/20">
+            খুঁজুন
+          </button>
+        </div>
+
+        <!-- Quick Tags -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mt-4 text-xs">
+          <span class="text-slate-400 font-semibold">জনপ্রিয়:</span>
+          <button onclick="document.getElementById('search-input').value='কাচ্চি'; filterAndRender();" class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 hover:border-amber-500 text-slate-300 hover:text-amber-400 transition-colors">১. কাচ্চি</button>
+          <button onclick="document.getElementById('search-input').value='বাটার চিকেন'; filterAndRender();" class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 hover:border-amber-500 text-slate-300 hover:text-amber-400 transition-colors">৫১. বাটার চিকেন</button>
+          <button onclick="document.getElementById('search-input').value='সুশি'; filterAndRender();" class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 hover:border-amber-500 text-slate-300 hover:text-amber-400 transition-colors">১০২. সুশি</button>
+          <button onclick="document.getElementById('search-input').value='মার্গারিটা'; filterAndRender();" class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 hover:border-amber-500 text-slate-300 hover:text-amber-400 transition-colors">২০১. মার্গারিটা পিৎজা</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CUISINE CATEGORIES CAROUSEL ================= -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 relative z-20 mb-12">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-xl font-bold text-white flex items-center gap-2">
+        <span>📂 ১০টি বিশ্বমানের খাবার বিভাগ</span>
+      </h3>
+      <span class="text-xs text-slate-400">ডানে-বামে স্ক্রোল করুন ➔</span>
+    </div>
+    
+    <div id="categories-container" class="flex gap-4 overflow-x-auto pb-4 no-scrollbar scroll-smooth">
+      <!-- Dynamic Categories Loaded by JS -->
+    </div>
+  </section>
+
+  <!-- ================= TRENDING RECIPES ================= -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14 relative z-10">
+    <div class="flex items-center justify-between mb-6">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-black text-white flex items-center gap-2">
+          <span>🔥 শীর্ষ ট্রেন্ডিং ডিশসমূহ</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1">সবচেয়ে জনপ্রিয় এবং সর্বোচ্চ রেটিং প্রাপ্ত রাজকীয় রেসিপি</p>
+      </div>
+    </div>
+
+    <div id="trending-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- Dynamic Trending Items Loaded by JS -->
+    </div>
+  </section>
+
+  <!-- ================= MAIN RECIPES GRID & FILTERS ================= -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 relative z-10">
+    
+    <!-- Filter Control Bar -->
+    <div class="glass-panel-3d p-4 sm:p-5 rounded-3xl mb-8 flex flex-col lg:flex-row items-center justify-between gap-4">
+      
+      <div class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
+        <span id="total-recipes-count" class="px-3.5 py-1.5 rounded-xl bg-amber-500/20 border border-amber-500/30 text-amber-400 font-extrabold text-xs sm:text-sm shadow-sm">
+          ৫০০ টি রেসিপি
+        </span>
+
+        <!-- Difficulty Filter -->
+        <select id="difficulty-select" class="py-2.5 px-3.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 text-xs sm:text-sm outline-none focus:border-amber-500">
+          <option value="">সকল কঠিনতা</option>
+          <option value="সহজ">সহজ রেসিপি</option>
+          <option value="মাঝারি">মাঝারি কঠিনতা</option>
+          <option value="কঠিন">রাজকীয়/কঠিন</option>
+        </select>
+
+        <!-- Sort Filter -->
+        <select id="sort-select" class="py-2.5 px-3.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 text-xs sm:text-sm outline-none focus:border-amber-500">
+          <option value="popular">জনপ্রিয়তা অনুযায়ী</option>
+          <option value="rating">সর্বোচ্চ রেটিং</option>
+          <option value="time_asc">কম সময় (দ্রুত রান্না)</option>
+        </select>
+      </div>
+
+      <!-- Prep Time Slider -->
+      <div class="flex items-center gap-3 w-full lg:w-auto bg-slate-900/80 px-4 py-2 rounded-2xl border border-slate-800">
+        <span class="text-xs text-slate-400 whitespace-nowrap font-medium">সর্বোচ্চ সময়:</span>
+        <input type="range" id="time-slider" min="15" max="180" step="15" value="180" class="w-28 sm:w-36 accent-amber-500 cursor-pointer">
+        <span id="time-val" class="text-xs font-bold text-amber-400 w-16 text-right">যেকোনো সময়</span>
+      </div>
+
+    </div>
+
+    <!-- Main Recipe Grid with 3D Tilt Cards -->
+    <div id="recipes-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- Dynamic Recipes Loaded by JS -->
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="border-t border-slate-900 bg-slate-950 pt-16 pb-12 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div class="space-y-4 md:col-span-2">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center text-xl text-slate-950 font-bold shadow-lg shadow-amber-500/20">🍲</div>
+            <span class="text-xl font-bold text-white">রন্ধনঘর Recipe Hub</span>
+          </div>
+          <p class="text-slate-400 text-sm max-w-md leading-relaxed">
+            বাংলাদেশের সবচেয়ে বড় ৫০০টি বিশ্বমানের রেসিপির ৩ডি ডিজিটাল সংগ্রহ। বাঙালি, চাইনিজ, ভারতীয়, ইতালীয়, মেক্সিকান ও আমেরিকান রেসিপি গাইড।
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold text-sm mb-4">ক্যাটাগরি</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><button onclick="selectCategory('bengali')" class="hover:text-amber-400">বাঙালি খাবার (১-৫০)</button></li>
+            <li><button onclick="selectCategory('indian')" class="hover:text-amber-400">ভারতীয় খাবার (৫১-১০০)</button></li>
+            <li><button onclick="selectCategory('chinese_east_asian')" class="hover:text-amber-400">চাইনিজ ও এশিয়ান (১০১-১৫০)</button></li>
+            <li><button onclick="selectCategory('fastfood_street')" class="hover:text-amber-400">ফাস্ট ফুড (১৫১-২০০)</button></li>
+            <li><button onclick="selectCategory('italian_european')" class="hover:text-amber-400">ইতালীয় (২০১-২৫০)</button></li>
+          </ul>
+        </div>
+
+        <!-- Developer Profile Info Block -->
+        <div class="bg-slate-900/90 p-4.5 rounded-2xl border border-slate-800 space-y-2">
+          <h4 class="text-white font-bold text-sm flex items-center gap-2 mb-2">
+            <span>👨‍💻 ডেভেলপার তথ্য</span>
+          </h4>
+          <p class="font-extrabold text-amber-400 text-sm">Hasan Ahmed Sojib</p>
+          <p class="text-xs text-slate-300 flex items-center gap-1.5">
+            <span>🎓</span> Uttara University (Dept. of CSE)
+          </p>
+          <p class="text-xs text-slate-400 flex items-center gap-1.5">
+            <span>📚</span> Running Student
+          </p>
+          <div class="pt-2">
+            <a href="https://wa.me/8801400336907" target="_blank" rel="noopener" 
+              class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-600/20 hover:bg-emerald-500 border border-emerald-500/40 text-emerald-300 hover:text-slate-950 font-bold text-xs transition-all duration-300 shadow-md">
+              <span>💬</span>
+              <span>WhatsApp: 01400336907</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="border-t border-slate-900 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <p>© 2026 রন্ধনঘর (500 Global Recipe Hub). Developed by Hasan Ahmed Sojib.</p>
+        <p>3D Ultra-Responsive Design for Mobile, iPad & PC.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= DETAILED RECIPE MODAL ================= -->
+  <div id="recipe-modal" class="fixed inset-0 z-50 hidden bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-6">
+    <div id="modal-card" class="bg-slate-950 border border-slate-800 rounded-3xl w-full max-w-3xl max-h-[88vh] flex flex-col shadow-2xl relative overflow-hidden">
+      <div id="modal-content-body" class="overflow-y-auto custom-scrollbar flex-1">
+        <!-- Dynamic Modal Content Loaded by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Application JS -->
+  <script src="js/app.js"></script>
+</body>
+</html>
